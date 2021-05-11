@@ -1,0 +1,79 @@
+/* * filter modal : start */
+
+#filter-modal-overlay {
+    /* default - modified using JS - changes to 'flex' */
+    display: none; 
+    
+    /* self */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+}
+
+#filter-modal-wrapper {
+    /* self */
+    display: flex;
+    position: absolute;
+    width: 100%;
+
+    /* children */
+    justify-content: center;
+}
+
+#filter-modal {
+    /* default - modified using JS - changes to 'flex' */
+    display: none; 
+    /* self */
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    top: 100px;
+    z-index: 1000;
+    width: 500px;
+    height: 500px;
+
+    /* children */
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+@media screen and (max-width: 768px) {
+    #filter-modal {
+        /* self - modified */
+        width: 300px;
+    }
+}
+
+#filter-modal * {
+    /* self */
+    width: 300px;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+    #filter-modal * {
+        /* self - modified */
+        width: 200px;
+    }
+}
+
+#filter-modal select { margin-bottom: 15px; }
+
+#filter-modal .icon {
+    position: absolute;
+    padding: 3px;
+    top: 17px;
+    left: 20px;
+    cursor: pointer;
+}
+#filter-modal .icon:hover {
+    color: black;
+}
+
+/* ! filter modal : end */
