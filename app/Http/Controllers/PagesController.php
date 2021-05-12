@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use function GuzzleHttp\Promise\all;
+use App\Classes\Cart;
 
 class PagesController extends Controller
 {
@@ -79,6 +80,24 @@ class PagesController extends Controller
 
     public function cart() {
         return view('pages.cart');
+    }
+
+    public function checkout(Request $request) {
+
+        // 'tbilisi' or 'region'
+        $region = request('region');
+        
+        $totalPrice = Cart::total_price();
+
+        // total price is incremented by 5 gel if region is 'region'
+        if ($region == 'region') {
+            $totalPrice += 5;
+        }
+
+        return view('/pages/checkout', [
+            'userRegion' => $region, 
+            'totalPrice' => $totalPrice,
+        ]);
     }
 
     /**

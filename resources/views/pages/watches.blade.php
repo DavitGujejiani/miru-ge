@@ -106,7 +106,7 @@
                                     dd($products_array);
                                     @endphp --}}
                                     @if (count($watches) == 0)
-                                        <h2 class="m-5">მსგავსი საათი არ მოიძებნა</h2>
+                                    <h2 class="m-5">მსგავსი საათი არ მოიძებნა</h2>
                                     @endif
                                     @foreach ($watches as $items => $item)
                                     <div class="col-xl-3 col-md-4 col-sm-6 ">
@@ -173,24 +173,41 @@
         </div>
     </div>
     @endsection
-
-    @section('javascript')
-    <script>
-        // sets filter modal options to selected values after submit
-        document.getElementById('filterType').value = "<?php echo $_GET['type'] ?>";
-        document.getElementById('filterSex').value = "<?php echo $_GET['sex'] ?>";
-        document.getElementById('filterSort').value = "<?php echo $_GET['sort'] ?>";
-
-        // 
-        var filterModal = document.getElementById('filter-modal')
-        var filterOverlay = document.getElementById('filter-modal-overlay')
-        function filterHide() {
-            filterModal.style.display = 'none'
-            filterOverlay.style.display = 'none'
+    
+@section('javascript')
+<script>
+    // sets filter modal options to selected values after submit
+    document.getElementById('filterType').value = "<?php echo $_GET['type'] ?>";
+    document.getElementById('filterSex').value = "<?php echo $_GET['sex'] ?>";
+    document.getElementById('filterSort').value = "<?php echo $_GET['sort'] ?>";
+    
+    // 
+    var filterModal = document.getElementById('filter-modal')
+    var filterOverlay = document.getElementById('filter-modal-overlay')
+    function filterHide() {
+        filterModal.style.display = 'none'
+        filterOverlay.style.display = 'none'
+    }
+    function filterShow() {
+        filterModal.style.display = 'flex'
+        filterOverlay.style.display = 'flex'
+    }
+    
+    // SHOW MORE BUTTON
+    var button = document.getElementById("show-more-btn")
+    if(button !== null) {
+        const productView = document.querySelector(".product-view")
+        const prodViewHeight = productView.clientHeight;
+        if (prodViewHeight < 2500) {
+            button.style.display = "none";
         }
-        function filterShow() {
-            filterModal.style.display = 'flex'
-            filterOverlay.style.display = 'flex'
+        if (prodViewHeight > 2500) {
+            productView.style.height = "2500px";
+            button.addEventListener('click', function(){
+                document.querySelector(".product-view").style.height = "auto";
+                button.style.display = "none";
+            });
         }
-    </script>
-    @endsection
+    }
+</script>
+@endsection

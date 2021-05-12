@@ -23,6 +23,7 @@ Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 Route::get('/watch/{id}/{name}', [PagesController::class, 'watch'])->name('pages.watch');
 Route::get('/watches', [PagesController::class, 'watches'])->name('pages.watches');
 Route::get('/cart', [PagesController::class, 'cart'])->name('pages.cart');
+Route::post('/checkout', [PagesController::class, 'checkout'])->name('pages.checkout');
 
 Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
