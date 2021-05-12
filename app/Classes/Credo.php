@@ -32,12 +32,12 @@ class Credo
             // Every product's information that's in the
             // php session named "shopping_cart" is pushed into
             // credo array using this foreach loop below.
-            foreach (session('cart') as $products => $product2):
+            foreach (session('cart') as $items => $item):
                 $product_array = array(
-                    'id' => $product2['id'], 
-                    'title' => $product2['name'], 
-                    'amount' => $product2['qty'], 
-                    'price' => $product2['price'] * 100, 
+                    'id' => $item['id'], 
+                    'title' => $item['name'], 
+                    'amount' => $item['qty'], 
+                    'price' => $item['price'] * 100, 
                     'type' => $this->isMobile()
                 );
                 

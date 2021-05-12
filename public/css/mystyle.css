@@ -1,3 +1,23 @@
+/* * button validation css : start */
+
+.button-disabled {
+    pointer-events: none !important;
+    color: #fff;
+    background-color: gray !important;
+}
+
+.input-valid {
+    color: rgb(64, 163, 64) !important;
+    border: 1px solid rgb(64, 163, 64) !important;
+}
+
+.input-valid option {
+    color: #666 !important;
+}
+
+/* ! button validation css : end */
+
+
 /* * filter modal : start */
 
 #filter-modal-overlay {

@@ -77,6 +77,10 @@ class PagesController extends Controller
         return view('pages.watches', ['watches' => $watchesCollection, ]);
     }
 
+    public function cart() {
+        return view('pages.cart');
+    }
+
     /**
      * creates new key (real_price) inside every array of fetched data
      * from database and assignes value depending on if product

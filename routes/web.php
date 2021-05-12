@@ -22,7 +22,10 @@ Route::get('/welcome', function () {
 Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 Route::get('/watch/{id}/{name}', [PagesController::class, 'watch'])->name('pages.watch');
 Route::get('/watches', [PagesController::class, 'watches'])->name('pages.watches');
+Route::get('/cart', [PagesController::class, 'cart'])->name('pages.cart');
 
 Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/empty/', [CartController::class, 'empty'])->name('cart.empty');
+Route::get('/cart/changeQty/{id}/{newQty}', [CartController::class, 'changeQty'])->name('cart.changeQty');
 

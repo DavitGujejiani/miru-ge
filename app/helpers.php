@@ -37,6 +37,18 @@ if (! function_exists('urlize_product')) {
     }
 }
 
+if (! function_exists('product_images')) {
+    function product_images($item) {
+        if (gettype($item) === 'object') {
+            $source = asset('/images/product-image/' . $item->image);
+        }
+        if (gettype($item) === 'array') {
+            $source = asset('/images/product-image/' . $item['image']);
+        }
+        return $source;
+    }
+}
+
 // translates movement type from en to ge
 if (! function_exists('watch_movement')) {
     function watch_movement($type) 

@@ -83,6 +83,31 @@ class CartController extends Controller
         }
     }
 
+    public function changeQty($id, $newQty) 
+    {
+        if (session('cart') !== null) {
+
+            $cart = session('cart'); // puts session arrays into variable
+            
+            $cart[$id]['qty'] = $newQty; // assigns new quantity to product with the id
+
+            session()->put('cart', $cart); // puts updated array back to session 
+
+            Session::save();
+            
+            return redirect()->back();
+        }
+    }
+
+    public function empty() 
+    {
+        if (session('cart') !== null) {
+            session()->flush();
+            session()->save();
+            return redirect()->back();
+        }
+    }
+
     public function discount($price, $percent) 
     {
         // my 530.000 IQ discount formula
