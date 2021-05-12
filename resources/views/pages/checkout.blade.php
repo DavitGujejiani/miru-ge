@@ -211,62 +211,60 @@
 
 @section('javascript')
 <script>
-const pass_num = /^\d+$/
+    const pass_num = /^\d+$/
 
-const checkoutForm = document.getElementById('checkout-clientInfo-form');
-let name      = checkoutForm.elements.namedItem('name')
-let lastname  = checkoutForm.elements.namedItem('lastname')
-let region    = checkoutForm.elements.namedItem('region')
-let street    = checkoutForm.elements.namedItem('street')
-let apartment = checkoutForm.elements.namedItem('apartment')
-let number    = checkoutForm.elements.namedItem('number')
-let submitBtn = checkoutForm.elements.namedItem('submit')
+    const checkoutForm = document.getElementById('checkout-clientInfo-form');
+    let name      = checkoutForm.elements.namedItem('name')
+    let lastname  = checkoutForm.elements.namedItem('lastname')
+    let region    = checkoutForm.elements.namedItem('region')
+    let street    = checkoutForm.elements.namedItem('street')
+    let apartment = checkoutForm.elements.namedItem('apartment')
+    let number    = checkoutForm.elements.namedItem('number')
+    let submitBtn = checkoutForm.elements.namedItem('submit')
 
+    name.addEventListener('focusout', validate)
+    lastname.addEventListener('focusout', validate)
+    region.addEventListener('change', validate)
+    street.addEventListener('focusout', validate)
+    apartment.addEventListener('focusout', validate)
+    number.addEventListener('input', validateNumber)
 
+    function validateNumber(e) {
+        let target = e.target
+        let classlist = target.classList
 
-name.addEventListener('focusout', validate)
-lastname.addEventListener('focusout', validate)
-region.addEventListener('change', validate)
-street.addEventListener('focusout', validate)
-apartment.addEventListener('focusout', validate)
-number.addEventListener('input', validateNumber)
+        let is_int_only = pass_num.test(target.value)
 
-function validateNumber(e) {
-    let target = e.target
-    let classlist = target.classList
-
-    let is_int_only = pass_num.test(target.value)
-
-    if (target.value.length == 9 & is_int_only) {
-        classlist.add('input-valid')
-    } else {
-        classlist.remove('input-valid')
+        if (target.value.length == 9 & is_int_only) {
+            classlist.add('input-valid')
+        } else {
+            classlist.remove('input-valid')
+        }
     }
-}
 
-function validate(e) {
-    let target    = e.target
-    let classlist = target.classList;
+    function validate(e) {
+        let target    = e.target
+        let classlist = target.classList;
 
-    if (target.value.length > 0) {
-        classlist.add('input-valid')
-        console.log(target)
-    } else {
-        classlist.remove('input-valid')
+        if (target.value.length > 0) {
+            classlist.add('input-valid')
+            console.log(target)
+        } else {
+            classlist.remove('input-valid')
+        }
     }
-}
 
-function formCheck() {
-    if (name.classList.contains('input-valid') && lastname.classList.contains('input-valid') && region.classList.contains('input-valid') && number.classList.contains('input-valid')) 
-    {
-        submitBtn.classList.remove('button-disabled')
-        submitBtn.classList.add('btn-primary')
-    } else {
-        submitBtn.classList.add('button-disabled')
-        submitBtn.classList.remove('btn-primary')
+    function formCheck() {
+        if (name.classList.contains('input-valid') && lastname.classList.contains('input-valid') && region.classList.contains('input-valid') && number.classList.contains('input-valid')) 
+        {
+            submitBtn.classList.remove('button-disabled')
+            submitBtn.classList.add('btn-primary')
+        } else {
+            submitBtn.classList.add('button-disabled')
+            submitBtn.classList.remove('btn-primary')
+        }
     }
-}
 
-setInterval(formCheck, 300)
+    setInterval(formCheck, 300);
 </script>
 @endsection

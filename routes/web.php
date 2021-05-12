@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,6 @@ Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.st
 Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/cart/empty/', [CartController::class, 'empty'])->name('cart.empty');
 Route::get('/cart/changeQty/{id}/{newQty}', [CartController::class, 'changeQty'])->name('cart.changeQty');
+
+Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
