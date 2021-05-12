@@ -4,6 +4,33 @@
 @inject('product', 'App\Models\Product')
 
 @section('content')
+
+@if (Session::has('order_status'))
+
+{{-- MODAL --}}
+{{-- post-purchase 'congrats' modal --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">გილოცავთ</h5>
+            <button type="button" class="close" aria-label="Close" onclick="closeModal()">
+                {{-- <span aria-hidden="true">×</span> --}}
+            </button>
+        </div>
+        <div class="modal-body text-success">
+            თქვენი შეკვეთა წარმატებით გაიგზავნა!
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closeModal()">დახურვა</button>
+            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+@endif
+
 <!-- Slider Start -->
 <div class="slider-area slider-height-4">
     <div class="hero-slider swiper-container">
@@ -251,4 +278,34 @@
 </div>
 <!-- Banner Area End -->
 
+@endsection
+
+@section('javascript')
+@if (Session::has('order_status'))
+{{-- for 'congrats' modal after making a purchase --}}
+<script>
+function openModal() {
+    document.getElementById("backdrop").style.display = "block"
+    document.getElementById("exampleModal").style.display = "block"
+    document.getElementById("exampleModal").className += "show"
+}
+function closeModal() {
+    document.getElementById("backdrop").style.display = "none"
+    document.getElementById("exampleModal").style.display = "none"
+    document.getElementById("exampleModal").className += document.getElementById("exampleModal").className.replace("show", "")
+}
+// Get the modal
+var modal = document.getElementById('exampleModal');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        closeModal()
+    }
+}
+
+window.onload = openModal;
+</script>
+
+@endif
 @endsection
