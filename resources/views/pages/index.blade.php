@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.website')
 
 @inject('banner', 'App\Models\Banner')
 @inject('product', 'App\Models\Product')

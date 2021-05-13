@@ -11,10 +11,7 @@
 <body>
     {{-- class injections from App\Classes folder --}}
     @inject('cart', 'App\Classes\Cart')
-    @inject('crystal', 'App\Classes\Crystal')
-    @inject('credo', 'App\Classes\Credo')
 
-    @dump(session('cart'))
     @include('vendor.header')
     @include('vendor.header-mobile')
     {{-- cart and mobile menu --}}

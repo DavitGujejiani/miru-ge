@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.website')
 
 @inject('cart', 'App\Classes\Cart')
 

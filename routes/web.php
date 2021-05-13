@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 Route::get('/watch/{id}/{name}', [PagesController::class, 'watch'])->name('pages.watch');
@@ -32,4 +29,15 @@ Route::post('/cart/empty/', [CartController::class, 'empty'])->name('cart.empty'
 Route::get('/cart/changeQty/{id}/{newQty}', [CartController::class, 'changeQty'])->name('cart.changeQty');
 
 Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+Route::get('/admin/product/create', [AdminController::class, 'create'])->name('admin.create');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+
+require __DIR__ . '/auth.php';
+
 

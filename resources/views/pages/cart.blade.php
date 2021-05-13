@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.website')
 
 @inject('cart', '\App\Classes\Cart')
 @inject('crystal', 'App\Classes\Crystal')
@@ -85,7 +85,7 @@
                 <div class="cart-shiping-update">
                 </div>
                 <div class="cart-clear">
-                  <form action="/cart/flush" method="post">
+                  <form action="/cart/empty" method="post">
                     @csrf
                     
                     <button

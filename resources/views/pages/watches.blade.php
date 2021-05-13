@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.website')
 
 @section('content')
 {{-- MODALS --}}

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.website')
 
 @inject('credo', 'App\Classes\Credo')
 @inject('crystal', 'App\Classes\Crystal')
