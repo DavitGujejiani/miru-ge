@@ -9,19 +9,29 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function create() {
-        $this->validateAdmin();
+        if ($this->invalidAdmin()) 
+        {
+            return $this->invalidAdmin();
+        }
 
+        return view('admin.create');
+        
     }
 
+
     public function dashboard() {
-        $this->validateAdmin();
+        if ($this->invalidAdmin()) 
+        {
+            return $this->invalidAdmin();
+        }
         return view('admin.dashboard');
     }
 
-    public function validateAdmin() 
+    public function invalidAdmin() 
     {
-        if (!Auth::check()) {return redirect('/admin/login');}
-        if (Auth::id() !== 1) {return redirect('/index');}
+        if (!Auth::check()) {return redirect('/login');}
+        if (Auth::id() !== 1) {return redirect('/');}
+        return null;
     }
 }
 

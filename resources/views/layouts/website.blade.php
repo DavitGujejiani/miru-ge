@@ -5,7 +5,9 @@
     @include('vendor.head.meta-tags')
     {{-- every link tag including: fonts, css-plugins, favicon, styles and etc. --}}
     @include('vendor.head.link-tags')
-
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/mystyle.css') }}" />
     <title>Miru</title>
 </head>
 <body>

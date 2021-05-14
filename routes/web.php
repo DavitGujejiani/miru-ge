@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CartController;
@@ -34,9 +33,8 @@ Route::post('/order/store', [OrderController::class, 'store'])->name('order.stor
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-Route::get('/admin/product/create', [AdminController::class, 'create'])->name('admin.create');
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+require __DIR__ . '/admin.php';
 
 require __DIR__ . '/auth.php';
 

@@ -10,7 +10,3 @@
 <link rel="stylesheet" href="{{ asset('css/vendor/vendor.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/plugins/plugins.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
-
-<!-- Main Style CSS -->
-<link rel="stylesheet" href="{{ asset('/css/style.css') }}" />
-<link rel="stylesheet" href="{{ asset('/css/mystyle.css') }}" />
