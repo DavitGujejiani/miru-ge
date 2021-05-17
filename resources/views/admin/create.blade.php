@@ -2,19 +2,24 @@
 
 @section('content')
     
+@if($errors->any())
+<div class="alert alert-success">{{ $errors->first() }}</div>
+@endif
+
+
 <div id="upload-wrapper">
     <span class="h4">პროდუქტის ატვირთვა</span>
-    <form class="mt-5" action="/admin/product/store" method="post">
+    <form class="mt-5" action="/admin/product/store" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-subwrapper">
-            <label for="name_en">სახელი ინგლისურად En</label> <i title="სახელშივე მიუთითეთ პროდუქტის ფერი" class="ion-help-circled"></i>
+            <label for="name_en">სახელი ინგლისურად En</label> <i title="უნდა შედგებოდეს მხოლოდ ლათინური ასოებისგან &#013;მაგალითი: &#013;Rolex Datejust 36 Silver Metal" class="ion-help-circled"></i>
             <input name="name_en" class="form-control" type="text" required>
             <br>
-            <label for="name_en">სახელი ქართულად Ge</label> <i title="სახელშივე მიუთითეთ პროდუქტის ფერი" class="ion-help-circled"></i>
-            <input name="name_ge" class="form-control" type="text" required>
+            <label for="name_en">სახელი ქართულად Ge</label> <i title="თანმიმდევრობით უნდა იყოს ლათინური სახელის მსგავის &#013;მაგალითი: &#013;ლათინურად: Rolex Datejust 36 Silver Metal &#013;ქართულად: Rolex Datejust 36 ვერცხლის მეტალი" class="ion-help-circled"></i>
+            <input name="name" class="form-control" type="text" required>
             <br>
-            <label for="movement_type">მუშაობის ტიპი</label>
-            <select name="movement_type" class="form-control" required>
+            <label for="movement">მუშაობის ტიპი</label>
+            <select name="movement" class="form-control" required>
                 <option value="quartz">კვარცი</option>
                 <option value="chronograph">ქრონოგრაფი</option>
                 <option value="mechanical">მექანიკური</option>
@@ -29,7 +34,7 @@
             <br>
             <br>
             <label for="is_discounted">ფასდაკება:</label>
-            კი <input name="is_discounted" type="checkbox" onclick="checkbox()" id="discount-checkbox"> 
+            კი <input name="is_discounted" type="checkbox" value="1" onclick="checkbox()" id="discount-checkbox"> 
             <br><br>
             
             <label id="price-label" for="price">ღირებულება</label>
@@ -39,22 +44,22 @@
             <input name="price" type="hidden" class="form-control" id="discount-input">
             <br>
 
-            <input name="is_new" type="checkbox"> <label for="is_new">ახალი</label>
+            <input name="is_new" type="checkbox" value="1"> <label for="is_new">ახალი</label>
             <i title="თუ მონიშნულია პროდუქტს ვებსაიტზე 'ახალი' თაგი დაეწერება ფოტოზე | tip: თაგის მოსაშორებლად დათაბეისში 'is_new' უნდა იყოს 0" class="ion-help-circled"></i>
             <br><br>
-            <input name="show_on_website" type="checkbox" checked> 
+            <input name="show_on_website" type="checkbox" value="1" checked> 
             <label for="show_on_website">საიტზე გამოჩენა</label>
             <br><br>
-            <input name="featured" type="checkbox"> 
+            <input name="featured" type="checkbox" value="1"> 
             <label for="featured">მოთხოვნადი</label>
             <br><br>
             <label class="mb-3" for="image">პროდუქტის სურათები</label>
             <br>
-            <i class="ion-help-circled" title="მთავარი სურათი აუცილებელია, სხვები არა"></i>
-            მთავარი: <input type="file" name="image" required><br><br>
-            სურათი 2: <input type="file" name="image2"><br><br>
+            <i class="ion-help-circled" title="მინიმუმი რაოდ. : 1 &#013;მაქსიმუმი რაოდ. : 4"></i>
+            მთავარი: <input type="file" name="images[]" multiple required><br><br>
+            {{-- სურათი 2: <input type="file" name="image2"><br><br>
             სურათი 3: <input type="file" name="image3"><br><br>
-            სურათი 4: <input type="file" name="image4">
+            სურათი 4: <input type="file" name="image4"> --}}
         </div>
         <div class="form-subwrapper">
             <label for="description">პროდუქტის აღწერა</label>

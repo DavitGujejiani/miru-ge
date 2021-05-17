@@ -23,9 +23,9 @@ class Product extends Model
         'description',
         'list_description',
         'image',
-        'image2',
-        'image3',
-        'image4',
+        'image_2',
+        'image_3',
+        'image_4',
     ];
 
     /**
