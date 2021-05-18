@@ -4428,7 +4428,7 @@ offcanvas-menu > ul > li .menu-expand {
   justify-content: space-between;
   padding: 30px 0 60px;
 }
-.cart-main-area .cart-shiping-update-wrapper .cart-clear > button {
+.cart-main-area .cart-shiping-update-wrapper .cart-clear form > button {
   border: medium none;
   cursor: pointer;
   margin-right: 27px;

@@ -97,3 +97,10 @@
 }
 
 /* ! filter modal : end */
+
+/* ? ganvadeba button width edit : start */
+.product-page-bank-btn-wrapper button img,
+.cart-page-btn-wrapper button img {
+    width: 300px;
+}
+/* ! ganvadeba button width edit : start */

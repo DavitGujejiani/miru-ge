@@ -6,7 +6,7 @@
             <!-- Header Logo Start -->
             <div class="col">
                 <div class="header-logo">
-                    <a href="/"><img class="img-responsive" src="{{ asset('/images/logo/logo.jpg') }}" alt="logo.jpg" /></a>
+                    <a class="h1 text-dark font-weight-bold" href="/">MIRU.GE</a>
                 </div>
             </div>
             <!-- Header Logo End -->
@@ -78,17 +78,17 @@
                         <li>
                             <a href="#"><span class="menu-text">მუშაობის ტიპი</span></a>
                             <ul class="sub-menu">
-                                <li><a href="/watches/mechanical">მექანიკური</a></li>
-                                <li><a href="/watches/chronograph">ქრონოგრაფი</a></li>
-                                <li><a href="/watches/quartz">კვარცი</a></li>
+                                <li><a href="/watches?type=mechanical">მექანიკური</a></li>
+                                <li><a href="/watches?type=chronograph">ქრონოგრაფი</a></li>
+                                <li><a href="/watches?type=quartz">კვარცი</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#"><span class="menu-text">სქესის მიხედვით</span></a>
                             <ul class="sub-menu">
-                                <li><a href="/watches/men">მამაკაცების საათები</a></li>
-                                <li><a href="/watches/women">ქალის საათები</a></li>
-                                <li><a href="/watches/unisex">უნისექსი</a></li>
+                                <li><a href="/watches?sex=men">მამაკაცების საათები</a></li>
+                                <li><a href="/watches?sex=women">ქალის საათები</a></li>
+                                <li><a href="/watches?sex=unisex">უნისექსი</a></li>
                             </ul>
                         </li>
                         {{-- <li>

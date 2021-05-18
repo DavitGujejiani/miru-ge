@@ -1,3 +1,5 @@
+@inject('banner', 'App\Models\Banner')
+
 <div id="header-replacer-on-scroll"></div>
 <!-- Header Section Start From Here -->
 <header class="header-wrapper">
@@ -6,7 +8,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="logo">
-                        <a href="/"><img class="img-responsive" src="{{ asset('/images/logo/logo-2.jpg') }}" alt="logo.jpg" /></a>
+                        <a class="h1 text-white font-weight-bold" href="/">MIRU.GE</a>
                     </div>
                 </div>
                 <div class="col-md-10 align-self-center">
@@ -48,30 +50,30 @@
                                     <li class="w-100">
                                         <ul class="banner-megamenu-wrapper d-flex">
                                             <li class="banner-wrapper mr-30px">
-                                                <a href="/watches?sex=men"><img src="{{ asset('/images/menu-image/banner-menu2.jpg') }}" alt="" /></a>
+                                                <a href="/watches?sex=men"><img src="{{ asset('/images/banner-image/' . $banner->image_name(7)) }}" alt="" /></a>
                                             </li>
                                             <li class="banner-wrapper">
-                                                <a href="/watches?type=mechanical"><img src="{{ asset('/images/menu-image/banner-menu3.jpg') }}" alt="" /></a>
+                                                <a href="/watches?type=mechanical"><img src="{{ asset('/images/banner-image/' . $banner->image_name(10)) }}" alt="" /></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="w-100">
                                         <ul class="banner-megamenu-wrapper d-flex">
                                             <li class="banner-wrapper mr-30px">
-                                                <a href="/watches?sex=women"><img src="{{ asset('/images/menu-image/banner-menu2.jpg') }}" alt="" /></a>
+                                                <a href="/watches?sex=women"><img src="{{ asset('/images/banner-image/' . $banner->image_name(8)) }}" alt="" /></a>
                                             </li>
                                             <li class="banner-wrapper">
-                                                <a href="/watches?type=chronograph"><img src="{{ asset('/images/menu-image/banner-menu3.jpg') }}" alt="" /></a>
+                                                <a href="/watches?type=chronograph"><img src="{{ asset('/images/banner-image/' . $banner->image_name(11)) }}" alt="" /></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="w-100">
                                         <ul class="banner-megamenu-wrapper d-flex">
                                             <li class="banner-wrapper mr-30px">
-                                                <a href="/watches?sex=unisex"><img src="{{ asset('/images/menu-image/banner-menu2.jpg') }}" alt="" /></a>
+                                                <a href="/watches?sex=unisex"><img src="{{ asset('/images/banner-image/' . $banner->image_name(9)) }}" alt="" /></a>
                                             </li>
                                             <li class="banner-wrapper">
-                                                <a href="/watches?type=quartz"><img src="{{ asset('/images/menu-image/banner-menu3.jpg') }}" alt="" /></a>
+                                                <a href="/watches?type=quartz"><img src="{{ asset('/images/banner-image/' . $banner->image_name(12)) }}" alt="" /></a>
                                             </li>
                                         </ul>
                                     </li>

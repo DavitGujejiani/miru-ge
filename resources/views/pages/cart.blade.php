@@ -83,12 +83,13 @@
             <div class="col-lg-12">
               <div class="cart-shiping-update-wrapper">
                 <div class="cart-shiping-update">
-                </div>
-                <div class="cart-clear">
+                </div>2
+                <div class="cart-clear row">
                   <form action="/cart/empty" method="post">
                     @csrf
                     
                     <button
+                    class="btn btn-outline-dark border"
                     type="submit"
                     >
                     კალათის გასუფთავება

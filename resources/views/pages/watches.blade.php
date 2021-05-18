@@ -177,9 +177,9 @@
 @section('javascript')
 <script>
     // sets filter modal options to selected values after submit
-    document.getElementById('filterType').value = "<?php echo $_GET['type'] ?>";
-    document.getElementById('filterSex').value = "<?php echo $_GET['sex'] ?>";
-    document.getElementById('filterSort').value = "<?php echo $_GET['sort'] ?>";
+    document.getElementById('filterType').value = "<?php echo isset($_GET['type']) ? $_GET['type'] : null ?>";
+    document.getElementById('filterSex').value = "<?php echo isset($_GET['sex']) ? $_GET['sex'] : null ?>";
+    document.getElementById('filterSort').value = "<?php echo isset($_GET['sort']) ? $_GET['sort'] : 'desc' ?>";
     
     // 
     var filterModal = document.getElementById('filter-modal')
