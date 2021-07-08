@@ -9,7 +9,7 @@
     @include('vendor.head.link-tags')
 </head>
 <body>
-    @include('admin.vendor.header')
+        @include('admin.vendor.header')
     @include('admin.vendor.sidebar')
 
     <div id="content-wrapper">

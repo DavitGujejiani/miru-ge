@@ -11,10 +11,7 @@ class AdminController extends Controller
 {
     public function create() {
         // dd(Storage::disk('image_uploads'));
-        if ($this->invalidAdmin()) 
-        {
-            return $this->invalidAdmin();
-        }
+        if ($this->invalidAdmin()) { return $this->invalidAdmin(); }
 
         return view('admin.create');
         

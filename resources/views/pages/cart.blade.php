@@ -83,7 +83,7 @@
             <div class="col-lg-12">
               <div class="cart-shiping-update-wrapper">
                 <div class="cart-shiping-update">
-                </div>2
+                </div>
                 <div class="cart-clear row">
                   <form action="/cart/empty" method="post">
                     @csrf

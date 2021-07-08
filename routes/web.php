@@ -22,10 +22,12 @@ Route::get('/watches', [PagesController::class, 'watches'])->name('pages.watches
 Route::get('/cart', [PagesController::class, 'cart'])->name('pages.cart');
 Route::post('/checkout', [PagesController::class, 'checkout'])->name('pages.checkout');
 
-Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store');
-Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/cart/empty/', [CartController::class, 'empty'])->name('cart.empty');
-Route::get('/cart/changeQty/{id}/{newQty}', [CartController::class, 'changeQty'])->name('cart.changeQty');
+Route::group(['prefix' => 'cart', ], function() {
+    Route::post('store/{id}', [CartController::class, 'store'])->name('cart.store');
+    Route::post('remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('empty/', [CartController::class, 'empty'])->name('cart.empty');
+    Route::get('changeQty/{id}/{newQty}', [CartController::class, 'changeQty'])->name('cart.changeQty');
+});
 
 Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 

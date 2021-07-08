@@ -21,8 +21,7 @@ class Banner extends Model
      */
     public static function image_name($id) 
     {
-        $banner = Banner::where('id', $id)->get()[0]->attributes['image_name'];
-        return $banner;
+        return Banner::find($id)->image_name;
     }
 
     /**
