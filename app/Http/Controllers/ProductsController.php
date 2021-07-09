@@ -9,11 +9,6 @@ use Symfony\Component\Console\Input\Input;
 class ProductsController extends Controller
 {
     public function store(Request $request) {
-        
-        $request->validate([
-            'images' => 'required|image|mimes:jpeg,jpg,png,svg', 
-        ]);
-
         $img_name = [
             null,
             null,
@@ -29,7 +24,7 @@ class ProductsController extends Controller
                 $img_name[$loop_id] = "$filename";
             }
         }
-
+        
         $storeProduct = Product::create([
             'name_en' => $request->name_en, 
             'name' => $request->name, 
@@ -37,10 +32,10 @@ class ProductsController extends Controller
             'sex' => $request->sex, 
             'is_new' => $request->is_new, 
             'price' => $request->price, 
-            'is_discounted' => $request->is_discounted, 
+            'is_discounted' => $request->is_discounted,
             'discount_price' => $request->discount_price, 
             'show_on_website' => $request->show_on_website, 
-            'is_featured' => $request->is_featured, 
+            'is_featured' => (bool)$request->featured ?? false, 
             'description' => $request->description, 
             'list_description' => $request->list_description, 
             'image' => $img_name[0], 

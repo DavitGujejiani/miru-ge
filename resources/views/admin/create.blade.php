@@ -15,7 +15,7 @@
             <label for="name_en">სახელი ინგლისურად En</label> <i title="უნდა შედგებოდეს მხოლოდ ლათინური ასოებისგან &#013;მაგალითი: &#013;Rolex Datejust 36 Silver Metal" class="ion-help-circled"></i>
             <input name="name_en" class="form-control" type="text" required>
             <br>
-            <label for="name_en">სახელი ქართულად Ge</label> <i title="თანმიმდევრობით უნდა იყოს ლათინური სახელის მსგავის &#013;მაგალითი: &#013;ლათინურად: Rolex Datejust 36 Silver Metal &#013;ქართულად: Rolex Datejust 36 ვერცხლის მეტალი" class="ion-help-circled"></i>
+            <label for="name">სახელი ქართულად Ge</label> <i title="თანმიმდევრობით უნდა იყოს ლათინური სახელის მსგავის &#013;მაგალითი: &#013;ლათინურად: Rolex Datejust 36 Silver Metal &#013;ქართულად: Rolex Datejust 36 ვერცხლის მეტალი" class="ion-help-circled"></i>
             <input name="name" class="form-control" type="text" required>
             <br>
             <label for="movement">მუშაობის ტიპი</label>
@@ -40,8 +40,8 @@
             <label id="price-label" for="price">ღირებულება</label>
             <input name="price" type="int" class="form-control" required>
             <br>
-            <label class="d-none" id="discount-label" for="price">ღირებულება ფასდაკლებით</label>
-            <input name="price" type="hidden" class="form-control" id="discount-input">
+            <label class="d-none" id="discount-label" for="discount_price">ღირებულება ფასდაკლებით</label>
+            <input name="discount_price" type="hidden" class="form-control" id="discount-input">
             <br>
 
             <input name="is_new" type="checkbox" value="1"> <label for="is_new">ახალი</label>
