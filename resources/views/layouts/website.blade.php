@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/mystyle.css') }}" />
     <title>Miru</title>
+    <!-- favicon -->
+    <link rel="icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon"/>
 </head>
 <body>
     {{-- class injections from App\Classes folder --}}

@@ -13,10 +13,14 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <!-- favicon -->
+        <link rel="icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon"/>
+        
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
+        sdkjflsdjf
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
