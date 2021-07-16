@@ -17,6 +17,7 @@ use App\Http\Controllers\OrderController;
 */
 
 Route::get('/', [PagesController::class, 'index'])->name('pages.index');
+Route::get('/search', [PagesController::class, 'search'])->name('pages.search');
 Route::get('/watch/{id}/{name}', [PagesController::class, 'watch'])->name('pages.watch');
 Route::get('/watches', [PagesController::class, 'watches'])->name('pages.watches');
 Route::get('/cart', [PagesController::class, 'cart'])->name('pages.cart');

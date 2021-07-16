@@ -1,3 +1,5 @@
+@inject('cart', 'App\Classes\Cart')
+
 <!-- Mobile Header Section Start -->
 <div class="mobile-header d-xl-none sticky-nav bg-white ptb-10px">
     <div class="container">
@@ -15,7 +17,7 @@
             <div class="col-auto">
                 <div class="header-tools justify-content-end">
                     <div class="cart-info d-flex align-self-center">
-                        <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i class="icon-bag"></i><span>$20.00</span></a>
+                        <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i class="icon-bag"></i><span> {{ $cart->total_price() }}₾ </span></a>
                     </div>
                     <div class="mobile-menu-toggle">
                         <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
@@ -41,7 +43,7 @@
             <div class="col-md-12">
                 <div class="search-element media-body">
                     <form class="d-flex" action="/search" method="get">
-                        <input type="text" placeholder="ჩაწერეთ საძიებო სიტყვა ... " />
+                        <input name="keyword" type="text" placeholder="ჩაწერეთ საძიებო სიტყვა ... " />
                         <button type="submit" title="ძებნა"><i class="icon-magnifier"></i></button>
                     </form>
                 </div>
@@ -59,8 +61,8 @@
             <button class="offcanvas-close">×</button>
         </div>
         <div class="offcanvas-menu-search-form">
-            <form action="#">
-                <input type="text" placeholder="ძებნა...">
+            <form action="/search" method="get">
+                <input name="keyword" type="text" placeholder="ძებნა...">
                 <button><i class="icon-magnifier"></i></button>
             </form>
         </div>

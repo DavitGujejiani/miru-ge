@@ -14,9 +14,16 @@
                 <div class="col-md-10 align-self-center">
                     <div class="header-right-element d-flex">
                         <div class="search-element media-body">
-                            <form class="d-flex" action="/search" method="get">
-                                <input type="text" placeholder="ჩაწერეთ საძიებო სიტყვა ... " />
-                                <button type="submit" title="ძებნა"><i class="icon-magnifier"></i></button>
+                            <form action="/search" method="GET" class="d-flex">
+                                <input 
+                                    type="text" 
+                                    name="keyword"
+                                    placeholder="ჩაწერეთდ საძიებო სიტყვა ... " 
+                                    required
+                                />
+                                <button type="submit" title="ძებნა">
+                                    <i class="icon-magnifier"></i>
+                                </button>
                             </form>
                         </div>
                         <!--Cart info Start -->

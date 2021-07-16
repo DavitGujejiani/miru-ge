@@ -48,6 +48,23 @@ class PagesController extends Controller
         ]);
     }
 
+    public function search(Product $product) 
+    {
+        $keyword = $_GET['keyword'];
+        // get single item
+        $watches = $product::where('name', 'like', "%{$keyword}%")
+            ->orWhere('name_en', 'like', "%{$keyword}%")
+            ->orWhere('movement', 'like', "%{$keyword}%")
+            ->orWhere('sex', 'like', "%{$keyword}%")
+            ->orWhere('description', 'like', "%{$keyword}%")
+            ->orWhere('list_description', 'like', "%{$keyword}%")
+            ->get();
+        
+        return view('pages.watches', [
+            'watches' => $watches, 
+        ]);
+    }
+
     public function watches(Product $product, Request $request) 
     {
         $type = $request->type;
