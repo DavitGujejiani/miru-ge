@@ -36,7 +36,7 @@
     <div class="hero-slider swiper-container">
         <div class="swiper-wrapper">
             <!-- Single Slider  -->
-            <div class="swiper-slide bg-img d-flex" style="background-image: url({{ asset('/images/slider-image/' . $banner::image_name(1)) }});">
+            <div class="swiper-slide bg-img d-flex" style="background-image: url({{ asset('/images/banner-image/' . $banner::image_name(1)) }});">
                 <div class="container align-self-center">
                     <div class="slider-content-1 slider-animated-1 text-left pl-60px">
                         @if ($banner::slider_title(1, 'small') !== null)
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <!-- Single Slider  -->
-            <div class="swiper-slide bg-img d-flex" style="background-image: url({{ asset('/images/slider-image/'. $banner::image_name(2)) }});">
+            <div class="swiper-slide bg-img d-flex" style="background-image: url({{ asset('/images/banner-image/'. $banner::image_name(2)) }}">
                 <div class="container align-self-center">
                     <div class="slider-content-1 slider-animated-1 text-left pl-60px">
                         @if ($banner::slider_title(2, 'small') !== null)

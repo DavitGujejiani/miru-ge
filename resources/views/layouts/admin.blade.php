@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Miru.ge Admin Panel</title>
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @include('vendor.head.link-tags')
 </head>
 <body>

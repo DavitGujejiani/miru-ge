@@ -17,6 +17,14 @@ if (! function_exists('urlize')) {
         return $url;
     }
 }
+if (! function_exists('authAdmin')) {
+    function authAdmin() 
+    {
+        if (!auth()->check()) {return redirect('/login');}
+        if (auth()->id() !== 1) {return redirect('/');}
+        return null;
+    }
+}
 
 // urlizes product from object
 if (! function_exists('urlize_product')) {

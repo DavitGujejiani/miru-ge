@@ -50,30 +50,30 @@
                                     <li class="w-100">
                                         <ul class="banner-megamenu-wrapper d-flex">
                                             <li class="banner-wrapper mr-30px">
-                                                <a href="/watches?sex=men"><img src="{{ asset('/images/banner-image/' . $banner->image_name(7)) }}" alt="" /></a>
+                                                <a href="/watches?sex=men"><img src="{{ asset('/images/banner-image/' . $banner->image_name(6)) }}" alt="" /></a>
                                             </li>
                                             <li class="banner-wrapper">
-                                                <a href="/watches?type=mechanical"><img src="{{ asset('/images/banner-image/' . $banner->image_name(10)) }}" alt="" /></a>
+                                                <a href="/watches?type=mechanical"><img src="{{ asset('/images/banner-image/' . $banner->image_name(9)) }}" alt="" /></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="w-100">
                                         <ul class="banner-megamenu-wrapper d-flex">
                                             <li class="banner-wrapper mr-30px">
-                                                <a href="/watches?sex=women"><img src="{{ asset('/images/banner-image/' . $banner->image_name(8)) }}" alt="" /></a>
+                                                <a href="/watches?sex=women"><img src="{{ asset('/images/banner-image/' . $banner->image_name(7)) }}" alt="" /></a>
                                             </li>
                                             <li class="banner-wrapper">
-                                                <a href="/watches?type=chronograph"><img src="{{ asset('/images/banner-image/' . $banner->image_name(11)) }}" alt="" /></a>
+                                                <a href="/watches?type=chronograph"><img src="{{ asset('/images/banner-image/' . $banner->image_name(10)) }}" alt="" /></a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="w-100">
                                         <ul class="banner-megamenu-wrapper d-flex">
                                             <li class="banner-wrapper mr-30px">
-                                                <a href="/watches?sex=unisex"><img src="{{ asset('/images/banner-image/' . $banner->image_name(9)) }}" alt="" /></a>
+                                                <a href="/watches?sex=unisex"><img src="{{ asset('/images/banner-image/' . $banner->image_name(8)) }}" alt="" /></a>
                                             </li>
                                             <li class="banner-wrapper">
-                                                <a href="/watches?type=quartz"><img src="{{ asset('/images/banner-image/' . $banner->image_name(12)) }}" alt="" /></a>
+                                                <a href="/watches?type=quartz"><img src="{{ asset('/images/banner-image/' . $banner->image_name(11)) }}" alt="" /></a>
                                             </li>
                                         </ul>
                                     </li>

@@ -34,7 +34,7 @@
             <br>
             <br>
             <label for="is_discounted">ფასდაკება:</label>
-            კი <input name="is_discounted" type="checkbox" value="1" onclick="checkbox()" id="discount-checkbox"> 
+            კი <input name="is_discounted" type="checkbox" class="border border-blue-500" value="1" onclick="checkbox()" id="discount-checkbox"> 
             <br><br>
             
             <label id="price-label" for="price">ღირებულება</label>
@@ -44,13 +44,13 @@
             <input name="discount_price" type="hidden" class="form-control" id="discount-input">
             <br>
 
-            <input name="is_new" type="checkbox" value="1"> <label for="is_new">ახალი</label>
+            <input name="is_new" type="checkbox" class="border border-blue-500" value="1"> <label for="is_new">ახალი</label>
             <i title="თუ მონიშნულია პროდუქტს ვებსაიტზე 'ახალი' თაგი დაეწერება ფოტოზე | tip: თაგის მოსაშორებლად დათაბეისში 'is_new' უნდა იყოს 0" class="ion-help-circled"></i>
             <br><br>
-            <input name="show_on_website" type="checkbox" value="1" checked> 
+            <input name="show_on_website" type="checkbox" class="border border-blue-500" value="1" checked> 
             <label for="show_on_website">საიტზე გამოჩენა</label>
             <br><br>
-            <input name="featured" type="checkbox" value="1"> 
+            <input name="featured" type="checkbox" class="border border-blue-500" value="1"> 
             <label for="featured">მოთხოვნადი</label>
             <br><br>
             <label class="mb-3" for="image">პროდუქტის სურათები</label>

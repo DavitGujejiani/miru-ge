@@ -21,6 +21,8 @@ class CreateBannersTable extends Migration
             $table->string('slider_title_small')->nullable();
             $table->string('slider_title_bold')->nullable();
             $table->string('slider_button_title')->nullable();
+            $table->string('resolution')->default(null);
+            $table->string('banner_name');
             $table->timestamps();
         });
     }
