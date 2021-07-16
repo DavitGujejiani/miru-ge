@@ -27,7 +27,7 @@ class Banner extends Model
 
     public static function upload_image($file) 
     {
-        $filename = time() . '.' . $file->getClientOriginalName();
+        $filename = urlize(time() . '.' . $file->getClientOriginalName());
         $file->move(public_path().'/images/banner-image/', $filename);
         return $filename;
     }
@@ -35,9 +35,10 @@ class Banner extends Model
     public static function update_table($request, $image_name, $id) {
         $banner = Banner::find($id);
         $banner->image_name = $image_name;
-        $banner->goto_url = $request->url;
-        $banner->slider_title_small = $request->header_small;
-        $banner->slider_title_bold = $request->header_big;
+        $banner->goto_url = $request->url ?? null;
+        $banner->slider_title_small = $request->header_small ?? null;
+        $banner->slider_title_bold = $request->header_big ?? null;
+        $banner->slider_button_title = $request->slider_button_title ?? null;
         return $banner->save();
     }
     

@@ -9,6 +9,7 @@
     <div class="alert alert-success">ბანერი შეიცვალა!</div>
 @endif
 <div id="banner-wrapper">
+    <img src="/images/banner-image/{{ $banner->image_name }}">
     <figcaption class="ml-1 mb-4 font-weight-bold text-black">{{ $banner->banner_name }}
         <br>
         ზომა: {{ $banner->resolution }}
@@ -26,11 +27,15 @@
         <br>
         @endif
         @if ( $banner->id === 1 OR $banner->id === 2 )
-        <label class="" for="header_small">პატარა სათაური</label> <a title="რას ნიშნავს პატარა სათაური?" target="blank" href="/admin/banner/header-help"><i class="ion-help-circled"></i></a>
-        <input class="form-control" type="text" name="header_small" required>
+        <label class="" for="header_small">პატარა სათაური</label>
+        <input class="form-control" type="text" name="header_small" placeholder="current value: {{ $banner->slider_title_small }}" required>
         <br>
-        <label class="" for="header_big">დიდი სათაური</label> <a title="რას ნიშნავს დიდი სათაური?" target="blank" href="/admin/banner/header-help"><i class="ion-help-circled"></i></a>
-        <input class="form-control" type="text" name="header_big" required>
+        <label class="" for="header_big">დიდი სათაური</label>
+        <input class="form-control" type="text" name="header_big" placeholder="current value: {{ $banner->slider_title_bold }}" required>
+        <br>
+        <label class="" for="slider_button_title">ღილაკის ტექსტი</label>
+        <input class="form-control" type="text" name="slider_button_title" placeholder="current value: {{ $banner->slider_button_title }}" required>
+        
         <br>
         @endif
         <button class="btn btn-primary" type="submit">შეცვლა</button>
