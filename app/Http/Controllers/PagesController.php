@@ -105,7 +105,22 @@ class PagesController extends Controller
     
     public function cart()
     {
-        return view('pages.cart');
+        $tbcProductInfo = [];
+
+        if (null != session('cart')) {
+            foreach (session('cart') as $cartProduct) {
+                $product = [
+                    "name" => (string)$cartProduct["name"],
+                    "price" => (int)$cartProduct["price"] * (int)$cartProduct["qty"],
+                    "quantity" => (int)$cartProduct["qty"],
+                ];
+                array_push($tbcProductInfo, $product);
+            }
+        }
+
+        return view('pages.cart', [
+            'tbcProductInfo' => json_encode($tbcProductInfo),
+        ]);
     }
     
     public function checkout(Request $request)

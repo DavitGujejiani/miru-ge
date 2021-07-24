@@ -30,7 +30,6 @@
     <h3 class="cart-page-title">კალათაში ჩაგდებული პროდუქტები:</h3>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-        <form action="#">
           <div class="table-content table-responsive cart-table-content">
             <table>
               <thead>
@@ -112,6 +111,13 @@
               <div class="tax-select-wrapper">
                 <div class="tax-select col">
                   <div class="cart-page-btn-wrapper">
+                    <form target="_blank" action="/tbc/send-invoice" method="post">
+                        @csrf
+                        <input type="hidden" name="productInfo" value="{{ $tbcProductInfo }}">
+                        <button class="btn btn-lg" type="submit">
+                            <img src="/images/bank-logos/tbc-btn.png" class="bank-btn">
+                        </button>
+                    </form>
                     <form target="_blank" action="{{ $crystal->cart_newURL(session('cart')) }}" method="post">
                       <button 
                       class="btn btn-lg" 
