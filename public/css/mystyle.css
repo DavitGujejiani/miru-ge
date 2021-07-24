@@ -162,3 +162,13 @@
 }
 
 /* product-page bank buttons : END */
+
+/* slider colors : START */
+
+.my-slider-button {
+    background: white !important;
+    color: #222 !important;
+
+}
+
+/* slider colors : END */

@@ -40,9 +40,9 @@
                 <div class="container align-self-center">
                     <div class="slider-content-1 slider-animated-1 text-left pl-60px">
                         @if ($banner::slider_title(1, 'small') !== null)
-                            <span class="animated color-gray">{{ $banner::slider_title(1, 'small') }}</span>
+                            <span class="animated color-white">{{ $banner::slider_title(1, 'small') }}</span>
                         @endif
-                        <h1 class="animated color-black">
+                        <h1 class="animated color-white">
                             @if ($banner::slider_title(1) !== null)
                                 {{ $banner::slider_title(1) }} <br />
                             @endif
@@ -50,7 +50,7 @@
                                 <strong>{{ $banner::slider_title(1, 'bold') }}</strong>
                             @endif
                         </h1>
-                        <a href="{{ $banner::getColumn(1, 'goto_url') }}" class="shop-btn animated">{{ $banner::getColumn(1, 'slider_button_title') }}</a>
+                        <a href="{{ $banner::getColumn(1, 'goto_url') }}" class="shop-btn animated color-black my-slider-button">{{ $banner::getColumn(1, 'slider_button_title') }}</a>
                     </div>
                 </div>
             </div>
