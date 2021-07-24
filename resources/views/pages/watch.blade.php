@@ -104,6 +104,13 @@
                     <h4 class="mt-3 mb-3">განვადებით შეძენა:</h4>
                     
                     <div class="product-page-bank-btn-wrapper">
+                        <form target="_blank" action="/tbc/send-invoice" method="POST">
+                            @csrf
+                            <input type="hidden" name="productInfo" value="{{ $tbcProductInfo }}">
+                            <button type="submit">
+                                <img src="/images/bank-logos/tbc-btn.png" class="bank-btn">
+                            </button>
+                        </form>
                         <form target="_blank" action="{{ $crystal->newUrl($item) }}" method="post">
                             <button 
                             class="btn btn-lg" 
@@ -133,8 +140,8 @@
                         >
                     </button>
                 </form>
+                
             </div>
-            
         </div>
     </div>
 </div>
