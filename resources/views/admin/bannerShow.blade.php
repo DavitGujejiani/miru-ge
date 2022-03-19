@@ -10,7 +10,7 @@
 @endif
 <div id="banner-wrapper">
     <img src="/images/banner-image/{{ $banner->image_name }}">
-    <figcaption class="ml-1 mb-4 font-weight-bold text-black">{{ $banner->banner_name }}
+    <figcaption class="ml-1 mb-4 font-weight-bold text-black">{{ $banner->banner_description }}
         <br>
         ზომა: {{ $banner->resolution }}
     </figcaption>
@@ -35,7 +35,7 @@
         <br>
         <label class="" for="slider_button_title">ღილაკის ტექსტი</label>
         <input class="form-control" type="text" name="slider_button_title" placeholder="current value: {{ $banner->slider_button_title }}" required>
-        
+
         <br>
         @endif
         <button class="btn btn-primary" type="submit">შეცვლა</button>
