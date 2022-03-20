@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    // use HasFactory;
+     use HasFactory;
 
     protected $fillable = [
         'name_en',
@@ -35,7 +35,7 @@ class Product extends Model
      * @param [text] $column_name
      * @return void
      */
-    public static function getColumn($row_id, $column_name) 
+    public static function getColumn($row_id, $column_name)
     {
         $value = Product::where('id', $row_id)->get()[0]->attributes[$column_name];
 
