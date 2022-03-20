@@ -34,14 +34,9 @@ class DatabaseSeeder extends Seeder
             'banner_description' => 'Homepage wide banner',
         ]);
 
-        $banner->factory()->create([
-            'type'               => Banner::BANNER_TYPE_HOMEPAGE_FIRST_OF_DOUBLE,
-            'banner_description' => 'First of double banner on homepage',
-        ]);
-
-        $banner->factory()->create([
-            'type'               => Banner::BANNER_TYPE_HOMEPAGE_SECOND_OF_DOUBLE,
-            'banner_description' => 'Second of double banner on homepage',
+        $banner->factory()->count(2)->create([
+            'type'               => Banner::BANNER_TYPE_HOMEPAGE_TWIN,
+            'banner_description' => 'Twin banner',
         ]);
 
         $banner->factory()->count(6)->create([

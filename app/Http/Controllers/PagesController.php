@@ -1,17 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\View\View;
 use function GuzzleHttp\Promise\all;
 use App\Classes\Cart;
 
 class PagesController extends Controller
 {
-    public function index(Product $product)
+    public function index(Product $product, Banner $banner): View
     {
-        
         $watches = [
             'featured'    => $product::where('is_featured', 1)->get(),
             'men'         => $product::where('sex', 'men')->get(),
@@ -19,90 +22,97 @@ class PagesController extends Controller
             'mechanical'  => $product::where('movement', 'mechanical')->get(),
             'chronograph' => $product::where('movement', 'chronograph')->get(),
             'quartz'      => $product::where('movement', 'quartz')->get(),
-            
         ];
-        // dump($productQueries['featured']);
+
+        $banners = [
+            'sliders'    => $banner->where('type', $banner::BANNER_TYPE_SLIDER)->get(),
+            'wideBanner' => $banner->where('type', $banner::BANNER_TYPE_HOMEPAGE_WIDE)->get()->first(),
+            'twins'      => $banner->where('type', $banner::BANNER_TYPE_HOMEPAGE_TWIN)->get(),
+            'categories' => $banner->where('type', $banner::BANNER_TYPE_CATEGORY)->get(),
+        ];
+
         return view('pages.index', [
             'watches' => $watches,
+            'banners' => $banners,
         ]);
     }
-    
+
     public function watch(Product $product, $id)
     {
         // get single item
         $item = $product::find($id);
-        
+
         // get same sex and type watches, give real_price key and turn into collection
         $watches = $product::where('sex', $item->sex)->where('movement', $item->movement)->where('id', '!=', $id)->get();
         $watches = $this->giveRealPrice($watches);
         $watchesCollection = collect($watches);
-        
+
         $watchesSortDesc = $watchesCollection->sortByDesc('real_price');
         $watchesSortAsc = $watchesCollection->sortBy('real_price');
-        
+
         $tbcProductInfo = [
             0 => [
-                "name" => (string)$item->name,
-                "price" => (int)real_price($item),
+                "name"     => (string)$item->name,
+                "price"    => (int)real_price($item),
                 "quantity" => 1,
             ],
         ];
-        
+
         return view('pages.watch', [
-            'item' => $item,
+            'item'             => $item,
             'sametypeSortDesc' => $watchesSortDesc,
-            'sametypeSortAsc' => $watchesSortAsc,
-            'tbcProductInfo' => json_encode($tbcProductInfo),
+            'sametypeSortAsc'  => $watchesSortAsc,
+            'tbcProductInfo'   => json_encode($tbcProductInfo),
         ]);
     }
-    
+
     public function search(Product $product)
     {
         $keyword = $_GET['keyword'];
         // get single item
         $watches = $product::where('name', 'like', "%{$keyword}%")
-        ->orWhere('name_en', 'like', "%{$keyword}%")
-        ->orWhere('movement', 'like', "%{$keyword}%")
-        ->orWhere('sex', 'like', "%{$keyword}%")
-        ->orWhere('description', 'like', "%{$keyword}%")
-        ->orWhere('list_description', 'like', "%{$keyword}%")
-        ->get();
-        
+            ->orWhere('name_en', 'like', "%{$keyword}%")
+            ->orWhere('movement', 'like', "%{$keyword}%")
+            ->orWhere('sex', 'like', "%{$keyword}%")
+            ->orWhere('description', 'like', "%{$keyword}%")
+            ->orWhere('list_description', 'like', "%{$keyword}%")
+            ->get();
+
         return view('pages.watches', [
             'watches' => $watches,
         ]);
     }
-    
+
     public function watches(Product $product, Request $request)
     {
         $type = $request->type;
-        $sex  = $request->sex;
+        $sex = $request->sex;
         $sort = $request->sort;
-        
+
         $watches = $product::all();
         $watchesCollection = collect($watches);
-        
-        if (!empty($type)) {
+
+        if (! empty($type)) {
             $watchesCollection = $watchesCollection->where('movement', $type);
         }
-        
-        if (!empty($sex)) {
+
+        if (! empty($sex)) {
             $watchesCollection = $watchesCollection->where('sex', $sex);
         }
-        
+
         if ($sort == 'desc') {
             $watchesCollection = $watchesCollection->sortByDesc('price')->values();
         }
-        
+
         if ($sort == 'asc') {
             $watchesCollection = $watchesCollection->sortBy('price')->values();
         }
-        
-        
+
+
         // return response($watchesCollection, 200);
         return view('pages.watches', ['watches' => $watchesCollection,]);
     }
-    
+
     public function cart()
     {
         $tbcProductInfo = [];
@@ -110,8 +120,8 @@ class PagesController extends Controller
         if (null != session('cart')) {
             foreach (session('cart') as $cartProduct) {
                 $product = [
-                    "name" => (string)$cartProduct["name"],
-                    "price" => (int)$cartProduct["price"] * (int)$cartProduct["qty"],
+                    "name"     => (string)$cartProduct["name"],
+                    "price"    => (int)$cartProduct["price"] * (int)$cartProduct["qty"],
                     "quantity" => (int)$cartProduct["qty"],
                 ];
                 array_push($tbcProductInfo, $product);
@@ -122,43 +132,42 @@ class PagesController extends Controller
             'tbcProductInfo' => json_encode($tbcProductInfo),
         ]);
     }
-    
+
     public function checkout(Request $request)
     {
-        
         // 'tbilisi' or 'region'
         $region = request('region');
-        
+
         $totalPrice = Cart::total_price();
-        
+
         // total price is incremented by 5 gel if region is 'region'
         if ($region == 'region') {
             $totalPrice += 5;
         }
-        
+
         return view('/pages/checkout', [
             'userRegion' => $region,
             'totalPrice' => $totalPrice,
         ]);
     }
-    
+
     /**
-    * creates new key (real_price) inside every array of fetched data
-    * from database and assignes value depending on if product
-    * is discounted or not
-    * 
-    * * Parameter should be array that contains newly fetched data from products table
-    *
-    * @param [array] $array
-    * @return void
-    */
+     * creates new key (real_price) inside every array of fetched data
+     * from database and assignes value depending on if product
+     * is discounted or not
+     *
+     * * Parameter should be array that contains newly fetched data from products table
+     *
+     * @param [array] $array
+     * @return void
+     */
     public function giveRealPrice($array)
     {
         foreach ($array as $loop_id => $item) :
             $realPrice = $item['is_discounted'] ? $item['discount_price'] : $item['price'];
             $array[$loop_id]['real_price'] = $realPrice;
         endforeach;
-        
+
         return $array;
     }
 }

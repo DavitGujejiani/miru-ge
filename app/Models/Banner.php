@@ -12,11 +12,10 @@ class Banner extends Model
 {
     use HasFactory;
 
-    const BANNER_TYPE_SLIDER                    = 1;
-    const BANNER_TYPE_HOMEPAGE_WIDE             = 2;
-    const BANNER_TYPE_HOMEPAGE_FIRST_OF_DOUBLE  = 3;
-    const BANNER_TYPE_HOMEPAGE_SECOND_OF_DOUBLE = 4;
-    const BANNER_TYPE_CATEGORY                  = 5;
+    const BANNER_TYPE_SLIDER        = 1;
+    const BANNER_TYPE_HOMEPAGE_WIDE = 2;
+    const BANNER_TYPE_HOMEPAGE_TWIN = 3;
+    const BANNER_TYPE_CATEGORY      = 4;
 
 
     protected $fillable = [
